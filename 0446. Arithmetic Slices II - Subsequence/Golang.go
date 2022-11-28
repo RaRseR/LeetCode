@@ -10,11 +10,8 @@ func numberOfArithmeticSlices(nums []int) int {
             diff := a - b
             
             res += m[j][diff]
-            
-			      m[i][diff] += m[j][diff] + 1
+			m[i][diff] += m[j][diff] + 1
         }
     }
-	
-	
 	return res
 }
