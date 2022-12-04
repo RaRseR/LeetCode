@@ -9,16 +9,16 @@ function combinationSum(candidates: number[], target: number): number[][] {
 };
 
 function helper(n : number[], t : number, p : number[], r : number[][]){
+    if (t < 0){
+        return
+    }
+    
     if (t === 0) {
         r.push(p)
         return
     }
     
-    for (let i = 0; i < n.length; ++i){
-        if (n[i] > t){
-            return
-        }
-        
+    for (let i = 0; i < n.length; ++i){  
         helper(n.slice(i), t - n[i], [...p, n[i]], r)
     }
     
