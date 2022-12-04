@@ -10,6 +10,10 @@ func combinationSum(candidates []int, target int) [][]int {
 
 
 func helper(n []int, t int, p []int, r *[][]int){
+    if t < 0 {
+       return
+    }
+    
     if t == 0 {
         c := make([]int, len(p))
         copy(c, p)
@@ -19,10 +23,6 @@ func helper(n []int, t int, p []int, r *[][]int){
     }
         
     for i, v := range n  {
-        if v > t {
-            return
-        }
-        
         helper(n[i:], t - v, append(p, v), r)
     }
 }
