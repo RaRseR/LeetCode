@@ -1,5 +1,5 @@
 public int findMin(int[] nums) {
-  if (nums.length == 0){
+  if (nums.length == 1){
     return nums[0];
   }
 
