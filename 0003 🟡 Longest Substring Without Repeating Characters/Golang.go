@@ -5,14 +5,14 @@ func lengthOfLongestSubstring(s string) (l int) {
 
     hash := map[byte]int{}
 
-    for j, i := 0, 0; j < len(s); j++ {
-        if v, ok := hash[s[j]]; ok && v > i {
-            i = v
+    for i, j := 0, 0; i < len(s); i++ {
+        if v, ok := hash[s[i]]; ok && v > j {
+            j = v
         }
-        if j - i + 1 > l {
-            l = j - i + 1
+        if i - j + 1 > l {
+            l = i - j + 1
         }
-        hash[s[j]] = j + 1
+        hash[s[i]] = i + 1
     }
 
     return
