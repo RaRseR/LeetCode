@@ -7,7 +7,7 @@ func searchInsert(nums []int, target int) int {
 		m := l + (r - l) / 2
 			
 		if nums[m] == target {
-            return m
+			return m
         } else if nums[m] > target {
             r = m
         } else {
