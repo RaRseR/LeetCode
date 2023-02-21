@@ -4,7 +4,7 @@ func searchInsert(nums []int, target int) int {
 	r := n - 1
 
 	for l < r {
-		m := l + (r - l) / 2
+	m := l + (r - l) / 2
 			
 		if nums[m] == target {
 			return m
