@@ -4,16 +4,16 @@ impl Solution {
     pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
         let mut map: HashMap<[u8; 26], Vec<String>> = HashMap::new();
         
-        for s in strs{
+        for s in strs {
             let mut key = [0_u8; 26];
     
-            for c in s.chars(){
+            for c in s.chars() {
                 key[c as usize - 'a' as usize] += 1;
             }
             
-            if let Some(vals) = map.get_mut(&key){
+            if let Some(vals) = map.get_mut(&key) {
                 vals.push(s);
-            }else{
+            } else {
                 map.insert(key, vec![s]);
             }
         }
