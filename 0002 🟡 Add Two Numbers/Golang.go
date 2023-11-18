@@ -1,16 +1,28 @@
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-    carry, dummy := 0, new(ListNode)
-    for node := dummy; l1 != nil || l2 != nil || carry > 0; node = node.Next {
+    carryOver := 0
+
+    result := &ListNode{
+        Val: 0,
+        Next: nil,
+    }
+
+    for pointer := result; l1 != nil || l2 != nil || carryOver > 0; pointer = pointer.Next {
         if l1 != nil {
-            carry += l1.Val
+            carryOver += l1.Val
             l1 = l1.Next
         }
+
         if l2 != nil {
-            carry += l2.Val
+            carryOver += l2.Val
             l2 = l2.Next
         }
-        node.Next = &ListNode{carry%10, nil}
-        carry /= 10
+
+        pointer.Next = &ListNode{
+            Val: carryOver%10,
+            Next: nil,
+        }
+        carryOver /= 10
     }
-    return dummy.Next
+
+    return result.Next
 }
