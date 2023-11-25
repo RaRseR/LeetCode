@@ -3,17 +3,13 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
         return nil
     }
 
-    var root *TreeNode = &TreeNode{
-        preorder[0],
-        nil,
-        nil,
-    }
-
     var mid int = indexOf(preorder[0], inorder)
-    root.Left = buildTree(preorder[1:mid + 1], inorder[:mid])
-    root.Right = buildTree(preorder[mid + 1:], inorder[mid + 1:])
 
-    return root
+    return &TreeNode{
+        Val: preorder[0],
+        Left: buildTree(preorder[1:mid + 1], inorder[:mid]),
+        Right: buildTree(preorder[mid + 1:], inorder[mid + 1:]),
+    }
 }
 
 func indexOf(num int, nums []int) int {
