@@ -8,8 +8,8 @@ use std::{
 impl Solution {
     pub fn max_path_sum(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         let mut result = i32::MIN;
-        
-		Self::dfs(&root, &mut result);
+
+	    Self::dfs(&root, &mut result);
         
 		return result;
     }
