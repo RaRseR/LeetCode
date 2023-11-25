@@ -11,8 +11,8 @@ func helper(root *TreeNode, currentMax *int) int {
         return 0
     }
 
-	left := max(0, helper(root.Left, currentMax))
-	right := max(0, helper(root.Right, currentMax))
+	var left int = max(0, helper(root.Left, currentMax))
+	var right int = max(0, helper(root.Right, currentMax))
 	*currentMax = max(*currentMax, root.Val+left+right)
 
 	return root.Val + max(left, right)
