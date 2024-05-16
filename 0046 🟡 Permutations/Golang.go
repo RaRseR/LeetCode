@@ -1,6 +1,4 @@
 func permute(nums []int) (result [][]int) {
-    sort.Ints(nums)
-    
     helper(nums, []int{}, &result)
 
     return result
