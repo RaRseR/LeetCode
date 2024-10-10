@@ -12,12 +12,12 @@ func maxWidthRamp(nums []int) int {
 
     for i := n - 1; i >= 0; i-- {
         for len(monotonicStack) > 0 && nums[monotonicStack[len(monotonicStack) - 1]] <= nums[i] {
-            j := monotonicStack[len(monotonicStack) - 1]
+            currentWidth := i - monotonicStack[len(monotonicStack) - 1]
 
             monotonicStack = monotonicStack[:len(monotonicStack) - 1]
 
-            if i - j > maxWidth {
-                maxWidth = i - j
+            if currentWidth > maxWidth {
+                maxWidth = currentWidth
             }
         }
     }
